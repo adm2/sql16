@@ -1,18 +1,19 @@
 Должны быть:
 * users
-id increment primary key
+userId increment primary key
 name
 email
 birthday
 
 * news
-id increment primary key
+newsId increment primary key
 name
 
-* subcribenews
-id increment primary key
+* subscribe
+subscribeId increment primary key
 
 * category
-
+categoryId
 
 * keywords
+keywordsId
