@@ -1,0 +1,18 @@
+Должны быть:
+* users
+id increment primary key
+name
+email
+birthday
+
+* news
+id increment primary key
+name
+
+* subcribenews
+id increment primary key
+
+* category
+
+
+* keywords
