@@ -1,0 +1,32 @@
+CREATE TABLE users
+(
+ID integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+name
+email
+birthday
+);
+
+CREATE TABLE news
+(
+ID integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+name
+text
+);
+
+CREATE TABLE subscribe
+(
+userId integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+
+);
+
+CREATE TABLE category
+(
+ID integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+text
+);
+
+CREATE TABLE keywords
+(
+newsId integer PRIMARY KEY AUTOINCREMENT NOT NULL, зависит от айди новости
+text
+);

@@ -1,0 +1,110 @@
+-- ---
+-- Globals
+-- ---
+
+-- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+-- SET FOREIGN_KEY_CHECKS=0;
+
+-- ---
+-- Table 'users'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `users`;
+		
+CREATE TABLE `users` (
+  `id` INTEGER(40) NULL AUTO_INCREMENT DEFAULT NULL,
+  `name` CHAR(40) NULL DEFAULT NULL,
+  `e-mail` CHAR(40) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'news'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `news`;
+		
+CREATE TABLE `news` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `name` CHAR(40) NULL DEFAULT NULL,
+  `text` CHAR(40) NULL DEFAULT NULL,
+  `categorysId` INTEGER NULL DEFAULT NULL,
+  `keywordsId` INTEGER NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'subscribes'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `subscribes`;
+		
+CREATE TABLE `subscribes` (
+  `id` INTEGER(40) NULL AUTO_INCREMENT DEFAULT NULL,
+  `usersId` INTEGER(40) NULL DEFAULT NULL,
+  `newsId` INTEGER(5) NULL DEFAULT NULL,
+  PRIMARY KEY (`usersId`)
+);
+
+-- ---
+-- Table 'categorys'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `categorys`;
+		
+CREATE TABLE `categorys` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `text` CHAR(40) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Table 'keywords'
+-- 
+-- ---
+
+DROP TABLE IF EXISTS `keywords`;
+		
+CREATE TABLE `keywords` (
+  `id` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `text` CHAR NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+-- ---
+-- Foreign Keys 
+-- ---
+
+ALTER TABLE `users` ADD FOREIGN KEY (id) REFERENCES `subscribes` (`usersId`);
+ALTER TABLE `news` ADD FOREIGN KEY (categorysId) REFERENCES `categorys` (`id`);
+ALTER TABLE `news` ADD FOREIGN KEY (keywordsId) REFERENCES `keywords` (`id`);
+ALTER TABLE `subscribes` ADD FOREIGN KEY (newsId) REFERENCES `news` (`id`);
+
+-- ---
+-- Table Properties
+-- ---
+
+-- ALTER TABLE `users` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `news` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `subscribes` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `categorys` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `keywords` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ---
+-- Test Data
+-- ---
+
+-- INSERT INTO `users` (`id`,`name`,`e-mail`) VALUES
+-- ('','','');
+-- INSERT INTO `news` (`id`,`name`,`text`,`categorysId`,`keywordsId`) VALUES
+-- ('','','','','');
+-- INSERT INTO `subscribes` (`id`,`usersId`,`newsId`) VALUES
+-- ('','','');
+-- INSERT INTO `categorys` (`id`,`text`) VALUES
+-- ('','');
+-- INSERT INTO `keywords` (`id`,`text`) VALUES
+-- ('','');

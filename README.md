@@ -5,3 +5,5 @@
 
 ## графическое представление отношений
 ![Table Info](http://u.cubeupload.com/adm2/20190526165228.png)
+
+https://ondras.zarovi.cz/sql/demo/
